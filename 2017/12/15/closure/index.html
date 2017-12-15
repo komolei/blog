@@ -197,13 +197,12 @@
 <ul>
 <li>理解执行上下文，作用域链</li>
 <li>理解GC(grabage collection)机制：在全局变量下，如果变量下次没有保持被引用的状态，则会被回收。</li>
-<li>如果要保持引用的话，就要将引用重置为null,这样就能防止内存泄露了。</li>
+<li>如果要保持引用的话，就要将引用重置为null,这样就能防止内存泄露了。<br><br></li>
 </ul>
 </li>
 </ul>
-<p>`js</p>
-<p>var a=new String(‘xixi’);<br>function f(){<br>    var b= new String(‘b’);<br>    function bb (){  //bb这个函数引用了f函数下的b这个变量，同时最后cc被在全局环境下的a所调用。<br>        console.log(b); //最终形成了闭包<br>    }<br>     var c= new String(‘c’); // 虽然cc是被return出去了，但是bb和cc共同享用了闭包对象。<br>    function cc (){<br>        console.log(cc);<br>    }<br>    return cc;<br>}<br>a = f();</p>
-<p>`<br><a href="http://ifanqi.me/2017/07/25/you-can-understand-closure/" target="_blank" rel="noopener">reference</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'xixi'</span>); </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b= <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'b'</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bb</span> (<span class="params"></span>)</span>&#123;  <span class="comment">//bb这个函数引用了f函数下的b这个变量，同时最后cc被在全局环境下的a所调用。</span></span><br><span class="line">        <span class="built_in">console</span>.log(b); <span class="comment">//最终形成了闭包</span></span><br><span class="line">    &#125;                       </span><br><span class="line">     <span class="keyword">var</span> c= <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'c'</span>); <span class="comment">// 虽然cc是被return出去了，但是bb和cc共同享用了闭包对象。</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">cc</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(cc);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cc;</span><br><span class="line">&#125;</span><br><span class="line">a = f();</span><br></pre></td></tr></table></figure>
+<p><a href="http://ifanqi.me/2017/07/25/you-can-understand-closure/" target="_blank" rel="noopener">reference</a></p>
 
                 <hr>
                 
